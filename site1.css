@@ -1,0 +1,19 @@
+img{
+    width: 100%;
+    height: 30em;
+    
+}
+#debut{
+    background-color: orange;
+    float: left;
+}
+.image{
+    float: left;
+}
+div{
+    width: 100%;
+    height: 100%;
+}
+h1{
+    text-align: center;
+}

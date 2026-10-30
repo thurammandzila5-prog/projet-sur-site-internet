@@ -1,0 +1,88 @@
+.appreciation {
+    background-color: #eaf2e6;
+    padding: 60px 7%;
+}
+
+.appreciation form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.appreciation textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c8d4c8;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    resize: vertical;
+}
+
+.etoiles {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 10px 0 20px;
+}
+
+.etoiles input {
+    display: none;
+}
+
+.etoiles label {
+    font-size: 35px;
+    color: #cccccc;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.etoiles input:checked ~ label,
+.etoiles label:hover,
+.etoiles label:hover ~ label {
+    color: #ffb400;
+}
+
+.appreciation button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#confirmation {
+    color: #287344;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#liste-avis {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+#liste-avis h2 {
+    text-align: center;
+    color: #245c38;
+    margin-bottom: 20px;
+}
+
+.avis {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #00000010;
+    overflow-wrap: anywhere;
+}
+
+.avis h3 {
+    color: #245c38;
+}
+
+.avis .note {
+    color: #ffb400;
+    font-size: 23px;
+    letter-spacing: 3px;
+}

@@ -1,0 +1,88 @@
+h1,p{
+    text-align: center;
+   color: rgb(63, 63, 146);
+}
+#tete{
+ display: flex;
+}
+.contenu{
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(63, 63, 146);
+    color: rgb(21, 21, 78)
+}
+h2,p1{
+    font-family: "Gill Sans", sans-serif;
+    color: rgb(21, 21, 78);
+}
+.droite{
+    color: rgb(21, 21, 78);
+    width: 48%;
+}
+.gauche{
+    color: rgb(21, 21, 78);
+    width: 48%;
+    
+}
+#div {
+    float: left;
+}
+#listre{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.francais{
+    color: rgb(21, 21, 78);
+    width: 48%;
+}
+.anglais{
+    color: rgb(21, 21, 78);
+    width: 87%;
+}
+#langue{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+}
+#personalité{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+}
+.qualite1{
+    color: rgb(21, 21, 78);
+    width: 100%;
+}
+.qualite2{
+    color: rgb(21, 21, 78);
+    width: 100%;
+}
+.qualite3{
+color
+: rgb(21
+, 21, 78);
+width
+: 100%;
+}
+
+.choix-langue {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 15px 25px;
+}
+
+.choix-langue a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #244A79;
+    font-weight: bold;
+}
+
+.choix-langue img {
+    width: 35px;
+    height: auto;
+}

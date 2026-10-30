@@ -1,0 +1,181 @@
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>appréciation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel='stylesheet' href='site7.css'>
+</head>
+<body>
+  <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="site2.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">présentation</font></font></a></li>
+          <li><a href="site7.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appreciation</font></font></a></li>
+          <li><a href="site5.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">historique</font></font></a></li>
+           <li><a href="site3.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">tarif-réservation</font></font></a></li>
+           <li><a href="cv.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">cv</font></font></a></li>
+          <li><a href="site1.html" class="nav-link px-2 link-dark"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">déconnecté</font></font></a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" onsubmit="rechercher(event)">
+          <input type="search" id="recherche" class="form-control" placeholder="Recherche..." aria-label="Recherche">
+        </form>
+
+        <div class="dropdown text-end">
+          
+         <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          
+          
+        </div>
+      </div>
+    </div>
+</header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+<script>
+function rechercher(event) {
+    event.preventDefault();
+
+    let mot = document.getElementById("recherche").value
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+
+    if (mot === "") {
+        alert("Écris un mot à rechercher !");
+        return;
+    }
+
+    let pages = [
+        { mots: ["presentation", "accueil", "nature"], lien: "site2.html" },
+        { mots: ["historique", "histoire", "origine"], lien: "site5.html" },
+        { mots: ["tarifs", "tarif", "reservation", "prix"], lien: "site3.html" },
+        { mots: ["paiement", "payer", "payement"], lien: "site8.html" },
+        { mots: ["appreciation", "avis", "commentaire"], lien: "site7.html" }
+    ];
+
+    let resultat = pages.find(page =>
+        page.mots.some(m => m.includes(mot) || mot.includes(m))
+    );
+
+    if (resultat) {
+        window.location.href = resultat.lien;
+    } else {
+        alert("Aucune page trouvée pour : " + mot);
+    }
+}
+</script>
+
+
+
+<section class="appreciation" id="appreciation">
+
+    <h1>Votre appréciation</h1>
+
+    <p class="intro">
+        Votre avis est important pour nous !
+        Partagez votre expérience et aidez-nous à améliorer
+        nos prochaines aventures dans la nature.
+    </p>
+
+    <form id="form-avis">
+
+        <label for="nom">Votre nom :</label>
+        <input type="text" id="nom"
+               placeholder="Entrez votre nom" required>
+
+        <label>Votre note :</label>
+
+        <div class="etoiles">
+            <input type="radio" id="etoile5" name="note" value="5" required>
+            <label for="etoile5">★</label>
+
+            <input type="radio" id="etoile4" name="note" value="4">
+            <label for="etoile4">★</label>
+
+            <input type="radio" id="etoile3" name="note" value="3">
+            <label for="etoile3">★</label>
+
+            <input type="radio" id="etoile2" name="note" value="2">
+            <label for="etoile2">★</label>
+
+            <input type="radio" id="etoile1" name="note" value="1">
+            <label for="etoile1">★</label>
+        </div>
+
+        <label for="commentaire">Votre commentaire :</label>
+
+        <textarea id="commentaire" rows="5"
+                  placeholder="Racontez-nous votre expérience..."
+                  required></textarea>
+
+        <button type="submit" class="bouton">
+            Envoyer mon appréciation
+        </button>
+
+        <p id="confirmation"></p>
+
+    </form>
+
+    <div id="liste-avis">
+        <h2>Les avis de nos visiteurs</h2>
+    </div>
+
+</section>
+
+<script>
+    const formAvis = document.getElementById("form-avis");
+    const listeAvis = document.getElementById("liste-avis");
+    const confirmation = document.getElementById("confirmation");
+
+    formAvis.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nom = document.getElementById("nom").value.trim();
+        const commentaire =
+            document.getElementById("commentaire").value.trim();
+
+        const note = document.querySelector(
+            'input[name="note"]:checked'
+        );
+
+        if (!note || !nom || !commentaire) {
+            confirmation.textContent =
+                "Veuillez remplir tous les champs.";
+            return;
+        }
+
+        const carte = document.createElement("div");
+        carte.className = "avis";
+
+        const titre = document.createElement("h3");
+        titre.textContent = nom;
+
+        const etoiles = document.createElement("p");
+        etoiles.className = "note";
+        etoiles.textContent = "★".repeat(Number(note.value)) +
+            "☆".repeat(5 - Number(note.value));
+
+        const texte = document.createElement("p");
+        texte.textContent = commentaire;
+
+        carte.append(titre, etoiles, texte);
+        listeAvis.appendChild(carte);
+
+        confirmation.textContent =
+            "Merci " + nom + " pour votre appréciation !";
+
+        formAvis.reset();
+    });
+</script>
+<div class="container"><footer class="py-3 my-4"><ul class="nav justify-content-center border-bottom pb-3 mb-3"><li class="nav-item"><a href="site8.html" class="nav-link px-2 fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">images</font></font></a></li><li class="nav-item"><a href="site6.html" class="nav-link px-2 fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">approfontire</font></font></a></li><li class="nav-item"><a href="site4.html" class="nav-link px-2 fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">à-propos</font></font></a></li><li class="nav-item"><a href="#" class="nav-link px-2 fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></li><li class="nav-item"><a href="#" class="nav-link px-2 fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></li></ul><p class="text-center fg-2"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">© 2026 Company, Inc</font></font></p></footer></div>  
+
+</body>
+</html>
